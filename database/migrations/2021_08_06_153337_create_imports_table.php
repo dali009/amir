@@ -34,6 +34,7 @@ class CreateImportsTable extends Migration
             $table->string('purchase_document');
             $table->string('deleted_post');
             $table->integer('record');
+            $table->integer('printed')->default(0);
             $table->timestamps();
         });
     }

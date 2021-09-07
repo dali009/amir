@@ -35,32 +35,38 @@
             /* margin-right: 1in;
             width: 60%; */
             padding-left: 55px;
-            padding-top:10px; 
-            padding-bottom:10px; 
+            padding-top:10px;
+            padding-bottom:10px;
         }
     </style>
 
 </head>
-
+<script type="text/javascript">
+    window.print();
+    window.addEventListener('afterprint', (event) => {
+    console.log('After print');
+    window.location.href = "{{ route('kitting') }}"
+    });
+    </script>
 <body>
-    @foreach ($datas as $item)
+    @foreach ($materials as $item)
     <div class="label">
         <b>
             {{$item->uuid}}<br>
             {{$item->material }}<br>
             <div class=barcode>
-                {{--------------------------------------------------------------------- 
+                {{---------------------------------------------------------------------
                 For print getBarcodeHTML: print bakcground must be true on browser
-                DNS1D::getBarcodeHTML($item->material,Type of barcode,Margin,height) 
+                DNS1D::getBarcodeHTML($item->material,Type of barcode,Margin,height)
                 -----------------------------------------------------------------------}}
-                {!! DNS1D::getBarcodeHTML($item->material,'C128',1.5,40)!!} 
+                {!! DNS1D::getBarcodeHTML($item->material,'C128',1.5,40)!!}
             </div>
             {{$item->nomenclature}}<br>
             {{$item->designation}}<br>
-            {{$item->quantity_required}}<br>
+            QTE: {{$item->quantity_required}}<br>
         </br>
     </div>
-    @endforeach    
+    @endforeach
 
     <div class="page-break"></div>
 

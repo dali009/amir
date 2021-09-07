@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class, //Bar code
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class, //Bar code
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class, //Bar code
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
