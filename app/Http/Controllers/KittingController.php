@@ -21,7 +21,7 @@ class KittingController extends Controller
         $materials=Import::where('id',$input)
                            ->get();
         return view('kitting.printKitting',compact('materials'));
-
+        // return redirect()->route('printKitting',compact('materials'))->with('fail','Material not found');
     }
     public function missing(){
         $materials=Import::where('printed',0)->get();
